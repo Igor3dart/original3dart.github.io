@@ -4,31 +4,43 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>original3dart</title>
+
 <style>
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #0f0f0f;
     color: #e6e6e6;
+    background: url("bg.jpg") no-repeat center center fixed;
+    background-size: cover;
     text-align: center;
 }
+
+.overlay {
+    background: rgba(0,0,0,0.75);
+    min-height: 100vh;
+    padding-bottom: 50px;
+}
+
 header {
-    padding: 80px 20px;
-    background: linear-gradient(180deg, #1a1a1a, #0f0f0f);
+    padding: 100px 20px;
 }
+
 h1 {
-    font-size: 48px;
-    letter-spacing: 3px;
+    font-size: 56px;
+    letter-spacing: 4px;
 }
+
 .subtitle {
-    color: #888;
     margin-top: 10px;
+    color: #aaa;
 }
+
 section {
     padding: 60px 20px;
     max-width: 800px;
     margin: auto;
 }
+
 .button {
     display: inline-block;
     padding: 12px 30px;
@@ -38,18 +50,15 @@ section {
     text-decoration: none;
     border-radius: 5px;
 }
+
 .button:hover {
     background: #2a5a3f;
 }
-footer {
-    padding: 20px;
-    background: #000;
-    font-size: 14px;
-    color: #777;
-}
 </style>
 </head>
+
 <body>
+<div class="overlay">
 
 <header>
     <h1>ORIGINAL3DART</h1>
@@ -72,13 +81,8 @@ footer {
 <section id="contact">
     <h2>Contact</h2>
     <p>Email: your@email.com</p>
-    <p>YouTube: link</p>
-    <p>Instagram: link</p>
 </section>
 
-<footer>
-    © 2026 original3dart
-</footer>
-
+</div>
 </body>
 </html>
