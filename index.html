@@ -3,86 +3,166 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>original3dart</title>
+<title>ORIGINAL3DART</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    color: #e6e6e6;
-    background: url("bg.jpg") no-repeat center center fixed;
-    background-size: cover;
-    text-align: center;
+
+body{
+margin:0;
+font-family:Arial,Helvetica,sans-serif;
+background:#0b0b0b;
+color:white;
+text-align:center;
 }
 
-.overlay {
-    background: rgba(0,0,0,0.75);
-    min-height: 100vh;
-    padding-bottom: 50px;
+.hero{
+background-image:url("cover.jpg");
+background-size:cover;
+background-position:center;
+height:80vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+background-attachment:fixed;
 }
 
-header {
-    padding: 100px 20px;
+.hero h1{
+font-size:60px;
+letter-spacing:4px;
+background:rgba(0,0,0,0.6);
+padding:20px 40px;
+border-radius:10px;
 }
 
-h1 {
-    font-size: 56px;
-    letter-spacing: 4px;
+.hero p{
+background:rgba(0,0,0,0.6);
+padding:10px 25px;
+border-radius:8px;
+margin-top:10px;
 }
 
-.subtitle {
-    margin-top: 10px;
-    color: #aaa;
+section{
+padding:60px 20px;
+max-width:1200px;
+margin:auto;
 }
 
-section {
-    padding: 60px 20px;
-    max-width: 800px;
-    margin: auto;
+h2{
+font-size:34px;
+margin-bottom:30px;
 }
 
-.button {
-    display: inline-block;
-    padding: 12px 30px;
-    margin-top: 20px;
-    background: #1f3d2b;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
 }
 
-.button:hover {
-    background: #2a5a3f;
+.gallery img{
+width:100%;
+border-radius:10px;
+cursor:pointer;
+transition:transform .3s;
 }
+
+.gallery img:hover{
+transform:scale(1.05);
+}
+
+.lightbox{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+display:none;
+align-items:center;
+justify-content:center;
+}
+
+.lightbox img{
+max-width:90%;
+max-height:90%;
+}
+
+footer{
+padding:30px;
+background:#000;
+color:#888;
+font-size:14px;
+}
+
 </style>
 </head>
 
 <body>
-<div class="overlay">
 
-<header>
-    <h1>ORIGINAL3DART</h1>
-    <div class="subtitle">Handcrafted Jewelry | Bronze | Gemstones | Enamel</div>
-    <a href="#contact" class="button">Contact Me</a>
-</header>
+<div class="hero">
+<h1>ORIGINAL3DART</h1>
+<p>Handcrafted Viking & Celtic Jewelry</p>
+</div>
 
 <section>
-    <h2>About Me</h2>
-    <p>I create handmade pendants in Celtic and Norse style.
-    Working with bronze, natural gemstones and enamel.</p>
+
+<h2>About</h2>
+
+<p>
+Handmade bronze pendants inspired by Celtic and Norse mythology.
+Natural gemstones, enamel and custom designs.
+</p>
+
 </section>
 
 <section>
-    <h2>My Works</h2>
-    <p>Custom pendants with 14mm gemstones.
-    Individual custom orders available.</p>
-</section>
 
-<section id="contact">
-    <h2>Contact</h2>
-    <p>Email: your@email.com</p>
-</section>
+<h2>Gallery</h2>
+
+<div class="gallery">
+
+<img src="work1.jpg" onclick="openImg(this.src)">
+<img src="work2.jpg" onclick="openImg(this.src)">
+<img src="work3.jpg" onclick="openImg(this.src)">
+<img src="work4.jpg" onclick="openImg(this.src)">
+<img src="work5.jpg" onclick="openImg(this.src)">
+<img src="work6.jpg" onclick="openImg(this.src)">
 
 </div>
+
+</section>
+
+<section>
+
+<h2>Contact</h2>
+
+<p>Email: your@email.com</p>
+<p>YouTube: link</p>
+
+</section>
+
+<footer>
+
+© 2026 ORIGINAL3DART
+
+</footer>
+
+<div class="lightbox" id="lightbox" onclick="closeImg()">
+<img id="lightimg">
+</div>
+
+<script>
+
+function openImg(src){
+document.getElementById("lightbox").style.display="flex";
+document.getElementById("lightimg").src=src;
+}
+
+function closeImg(){
+document.getElementById("lightbox").style.display="none";
+}
+
+</script>
+
 </body>
 </html>
