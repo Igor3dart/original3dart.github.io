@@ -1,76 +1,96 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>ORIGINAL3DART</title>
 
 <style>
 
 body{
 margin:0;
-font-family:serif;
-color:white;
-text-align:center;
 background:black;
+font-family:serif;
+display:flex;
+justify-content:center;
 }
 
-/* верхняя картинка */
+/* фон страницы */
 
-.hero{
-background-image:url("vikingsite.jpg");
+.page{
+width:900px;
+background:url("vikingsite.jpg") no-repeat top center;
 background-size:contain;
-background-repeat:no-repeat;
-background-position:center top;
-height:900px;
+padding-top:420px;
 }
 
 /* галерея */
 
 .gallery{
-max-width:1200px;
+width:720px;
 margin:auto;
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+grid-template-columns:repeat(4,1fr);
 gap:25px;
-padding:40px;
+padding-top:40px;
 }
 
 .gallery img{
+
 width:100%;
-border-radius:10px;
+height:150px;
+object-fit:cover;
+
+border-radius:8px;
+
 cursor:pointer;
+
 transition:0.3s;
+
 }
 
 .gallery img:hover{
 transform:scale(1.05);
 }
 
-/* увеличение картинки */
+/* увеличение */
 
 .lightbox{
+
 position:fixed;
+
 top:0;
 left:0;
+
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.9);
+
+background:rgba(0,0,0,0.95);
+
 display:none;
+
 align-items:center;
+
 justify-content:center;
+
 }
 
 .lightbox img{
+
 max-width:90%;
 max-height:90%;
+
 }
 
 footer{
-padding:40px;
+
+text-align:center;
+color:#c7b299;
+
+padding:60px;
+
 font-size:14px;
-color:#aaa;
+
 }
 
 </style>
@@ -78,9 +98,7 @@ color:#aaa;
 
 <body>
 
-<div class="hero"></div>
-
-<h2>My Works</h2>
+<div class="page">
 
 <div class="gallery">
 
@@ -89,14 +107,18 @@ color:#aaa;
 <img src="work3.jpg" onclick="openImg(this.src)">
 <img src="work4.jpg" onclick="openImg(this.src)">
 
+<img src="work5.jpg" onclick="openImg(this.src)">
+<img src="work6.jpg" onclick="openImg(this.src)">
+<img src="work7.jpg" onclick="openImg(this.src)">
+<img src="work8.jpg" onclick="openImg(this.src)">
+
 </div>
 
 <footer>
-
-<p>Handcrafted Celtic & Viking Jewelry</p>
-<p>© ORIGINAL3DART</p>
-
+© 2026 Igor Handmade
 </footer>
+
+</div>
 
 <div class="lightbox" id="lightbox" onclick="closeImg()">
 <img id="lightimg">
@@ -105,12 +127,17 @@ color:#aaa;
 <script>
 
 function openImg(src){
+
 document.getElementById("lightbox").style.display="flex";
+
 document.getElementById("lightimg").src=src;
+
 }
 
 function closeImg(){
+
 document.getElementById("lightbox").style.display="none";
+
 }
 
 </script>
