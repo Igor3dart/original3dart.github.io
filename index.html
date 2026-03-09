@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ORIGINAL3DART</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+background:black;
+display:flex;
+justify-content:center;
+font-family:'Cinzel',serif;
+}
+
+.page{
+
+width:900px;
+height:1400px;
+
+background:url("vikingsite.jpg") no-repeat top center;
+background-size:contain;
+
+position:relative;
+
+}
+
+/* орнамент заголовка */
+
+.title{
+
+position:absolute;
+
+top:450px;
+
+left:50%;
+transform:translateX(-50%);
+
+color:#d8c7a5;
+
+font-size:34px;
+
+padding:10px 40px;
+
+border-top:3px solid #7a6a50;
+border-bottom:3px solid #7a6a50;
+
+text-shadow:0 0 10px black;
+
+}
+
+/* галерея */
+
+.gallery{
+
+position:absolute;
+
+top:520px;
+
+left:50%;
+transform:translateX(-50%);
+
+width:720px;
+
+display:grid;
+
+grid-template-columns:repeat(4,1fr);
+
+gap:20px;
+
+}
+
+.gallery img{
+
+width:100%;
+height:150px;
+
+object-fit:cover;
+
+border-radius:8px;
+
+cursor:pointer;
+
+transition:0.3s;
+
+box-shadow:0 0 12px rgba(0,0,0,0.8);
+
+}
+
+.gallery img:hover{
+
+transform:scale(1.05);
+
+}
+
+/* нижний орнамент */
+
+.bottom{
+
+position:absolute;
+
+top:830px;
+
+left:50%;
+transform:translateX(-50%);
+
+color:#d8c7a5;
+
+font-size:32px;
+
+padding:10px 40px;
+
+border-top:3px solid #7a6a50;
+border-bottom:3px solid #7a6a50;
+
+text-shadow:0 0 10px black;
+
+}
+
+/* увеличение изображения */
+
+.lightbox{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:rgba(0,0,0,0.95);
+
+display:none;
+
+align-items:center;
+justify-content:center;
+
+}
+
+.lightbox img{
+
+max-width:90%;
+max-height:90%;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="page">
+
+<div class="title">
+Новые модели
+</div>
+
+<div class="gallery">
+
+<img src="work1.jpg" onclick="openImg(this.src)">
+<img src="work2.jpg" onclick="openImg(this.src)">
+<img src="work3.jpg" onclick="openImg(this.src)">
+<img src="work4.jpg" onclick="openImg(this.src)">
+
+<img src="work5.jpg" onclick="openImg(this.src)">
+<img src="work6.jpg" onclick="openImg(this.src)">
+<img src="work7.jpg" onclick="openImg(this.src)">
+<img src="work8.jpg" onclick="openImg(this.src)">
+
+</div>
+
+<div class="bottom">
+Все модели
+</div>
+
+</div>
+
+<div class="lightbox" id="lightbox" onclick="closeImg()">
+<img id="lightimg">
+</div>
+
+<script>
+
+function openImg(src){
+
+document.getElementById("lightbox").style.display="flex";
+document.getElementById("lightimg").src=src;
+
+}
+
+function closeImg(){
+
+document.getElementById("lightbox").style.display="none";
+
+}
+
+</script>
+
+</body>
+</html>
