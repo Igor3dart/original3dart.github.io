@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>ORIGINAL3DART</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap" rel="stylesheet">
@@ -12,43 +13,47 @@
 
 body{
 margin:0;
-background:black;
+background:#0b0b0b;
+font-family:'Cinzel', serif;
 display:flex;
 justify-content:center;
-font-family:'Cinzel',serif;
 }
 
-.page{
+.container{
 width:900px;
-height:1400px;
+min-height:1400px;
 background:url("vikingsite.jpg") no-repeat top center;
-background-size:contain;
+background-size:cover;
 position:relative;
 }
 
-/* верхний заголовок */
+/* заголовок */
 
-.title{
-position:absolute;
-top:450px;
-left:50%;
-transform:translateX(-50%);
-color:#d8c7a5;
+.section-title{
+text-align:center;
+color:#d8c8a8;
 font-size:34px;
-padding:10px 40px;
-border-top:3px solid #7a6a50;
-border-bottom:3px solid #7a6a50;
+margin-top:420px;
+margin-bottom:30px;
+letter-spacing:2px;
 text-shadow:0 0 10px black;
+}
+
+.section-title:before,
+.section-title:after{
+content:"";
+display:block;
+width:260px;
+height:2px;
+background:#7a6a50;
+margin:10px auto;
 }
 
 /* галерея */
 
 .gallery{
-position:absolute;
-top:520px;
-left:50%;
-transform:translateX(-50%);
 width:720px;
+margin:auto;
 display:grid;
 grid-template-columns:repeat(4,1fr);
 gap:20px;
@@ -61,7 +66,7 @@ object-fit:cover;
 border-radius:8px;
 cursor:pointer;
 transition:0.3s;
-box-shadow:0 0 12px rgba(0,0,0,0.8);
+box-shadow:0 0 15px rgba(0,0,0,0.8);
 }
 
 .gallery img:hover{
@@ -70,20 +75,26 @@ transform:scale(1.05);
 
 /* нижний заголовок */
 
-.bottom{
-position:absolute;
-top:830px;
-left:50%;
-transform:translateX(-50%);
-color:#d8c7a5;
+.bottom-title{
+text-align:center;
+margin-top:40px;
+color:#d8c8a8;
 font-size:32px;
-padding:10px 40px;
-border-top:3px solid #7a6a50;
-border-bottom:3px solid #7a6a50;
+letter-spacing:2px;
 text-shadow:0 0 10px black;
 }
 
-/* увеличение изображения */
+.bottom-title:before,
+.bottom-title:after{
+content:"";
+display:block;
+width:260px;
+height:2px;
+background:#7a6a50;
+margin:10px auto;
+}
+
+/* увеличение фото */
 
 .lightbox{
 position:fixed;
@@ -102,30 +113,40 @@ max-width:90%;
 max-height:90%;
 }
 
+.footer{
+text-align:center;
+color:#b8a98c;
+margin-top:280px;
+font-size:18px;
+}
+
 </style>
+
 </head>
 
 <body>
 
-<div class="page">
+<div class="container">
 
-<div class="title">
+<div class="section-title">
 Новые модели
 </div>
 
 <div class="gallery">
+
 <img src="work1.jpg" onclick="openImg(this.src)">
 <img src="work2.jpg" onclick="openImg(this.src)">
 <img src="work3.jpg" onclick="openImg(this.src)">
 <img src="work4.jpg" onclick="openImg(this.src)">
-<img src="work5.jpg" onclick="openImg(this.src)">
-<img src="work6.jpg" onclick="openImg(this.src)">
-<img src="work7.jpg" onclick="openImg(this.src)">
-<img src="work8.jpg" onclick="openImg(this.src)">
+
 </div>
 
-<div class="bottom">
+<div class="bottom-title">
 Все модели
+</div>
+
+<div class="footer">
+© 2026 Igor Handmade
 </div>
 
 </div>
@@ -149,4 +170,3 @@ document.getElementById("lightbox").style.display="none";
 
 </body>
 </html>
-<!-- update -->
