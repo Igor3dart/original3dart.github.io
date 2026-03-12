@@ -1,30 +1,123 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+
 <meta charset="UTF-8">
 <title>Original3Dart</title>
+
 <style>
-body{margin:0;background:#0b0b0b;color:white;font-family:Arial;text-align:center;}
-.hero{height:100vh;background:url("vikingsite.jpg") center/cover no-repeat;display:flex;flex-direction:column;justify-content:center;align-items:center;}
-.hero h1{font-size:60px;margin-bottom:30px;text-shadow:0 0 10px black;}
-.models{font-size:28px;margin-top:40px;}
-.button{margin-top:10px;padding:14px 40px;font-size:22px;background:#111;border:2px solid #888;color:white;text-decoration:none;}
-.button:hover{background:#333;}
-.gallery{padding:60px 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:25px;max-width:1200px;margin:auto;}
-.gallery img{width:100%;border-radius:8px;}
+
+body{
+margin:0;
+background:black;
+color:white;
+font-family:Arial;
+text-align:center;
+}
+
+.hero{
+
+height:100vh;
+
+background-image:url("vikingsite.jpg");
+background-size:contain;
+background-repeat:no-repeat;
+background-position:center;
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+
+}
+
+.title{
+font-size:60px;
+margin-bottom:20px;
+text-shadow:0 0 20px black;
+}
+
+.models{
+font-size:30px;
+margin-top:20px;
+}
+
+.button{
+
+margin-top:15px;
+
+padding:12px 35px;
+
+font-size:22px;
+
+border:2px solid #8a7a55;
+
+color:#e0d4b5;
+
+text-decoration:none;
+
+}
+
+.button:hover{
+
+background:#222;
+
+}
+
+.gallery{
+
+padding:40px;
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+gap:20px;
+
+max-width:1000px;
+
+margin:auto;
+
+}
+
+.gallery img{
+
+width:100%;
+
+border-radius:6px;
+
+}
+
 </style>
+
 </head>
+
 <body>
+
 <div class="hero">
-<h1>Original3Dart</h1>
-<div class="models">Все модели</div>
-<a class="button" href="models.html">Здесь</a>
+
+<div class="title">
+Original3Dart
 </div>
+
+<div class="models">
+Все модели
+</div>
+
+<a class="button" href="models.html">
+Здесь
+</a>
+
+</div>
+
 <div class="gallery">
+
 <img src="work1.jpg">
 <img src="work2.jpg">
 <img src="work3.jpg">
 <img src="work4.jpg">
+
 </div>
+
 </body>
 </html>
