@@ -1,172 +1,166 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Original3Dart</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Times New Roman', serif;
+      background: url('[i.ibb.co](https://i.ibb.co/5G6vRzJ/texture.jpg)') no-repeat center center fixed;
+      background-size: cover;
+      color: #e0cfa9;
+      text-align: center;
+    }
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    header {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 30px 10px;
+      border-bottom: 2px solid #3a2a14;
+    }
 
-<title>ORIGINAL3DART</title>
+    h1 {
+      font-size: 42px;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap" rel="stylesheet">
+    p.subtitle {
+      margin: 10px 0 0;
+      font-size: 16px;
+      color: #caa96b;
+    }
 
-<style>
+    .section-title {
+      margin: 40px 0 20px;
+      font-size: 28px;
+      text-shadow: 1px 1px 2px #000;
+    }
 
-body{
-margin:0;
-background:#0b0b0b;
-font-family:'Cinzel', serif;
-display:flex;
-justify-content:center;
-}
+    .gallery {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 0 20px;
+    }
 
-.container{
-width:900px;
-min-height:1400px;
-background:url("vikingsite.jpg") no-repeat top center;
-background-size:cover;
-position:relative;
-}
+    .gallery img {
+      border: 2px solid #7a5f37;
+      border-radius: 10px;
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
 
-/* заголовок */
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(255, 215, 150, 0.7);
+    }
 
-.section-title{
-text-align:center;
-color:#d8c8a8;
-font-size:34px;
-margin-top:420px;
-margin-bottom:30px;
-letter-spacing:2px;
-text-shadow:0 0 10px black;
-}
+    /* Модальное окно */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.9);
+      align-items: center;
+      justify-content: center;
+    }
 
-.section-title:before,
-.section-title:after{
-content:"";
-display:block;
-width:260px;
-height:2px;
-background:#7a6a50;
-margin:10px auto;
-}
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      border: 4px solid #8b6c3a;
+      border-radius: 10px;
+    }
 
-/* галерея */
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      color: #f8e8c0;
+      font-size: 40px;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
 
-.gallery{
-width:720px;
-margin:auto;
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:20px;
-}
+    .close:hover {
+      color: #ffcc66;
+    }
 
-.gallery img{
-width:100%;
-height:150px;
-object-fit:cover;
-border-radius:8px;
-cursor:pointer;
-transition:0.3s;
-box-shadow:0 0 15px rgba(0,0,0,0.8);
-}
-
-.gallery img:hover{
-transform:scale(1.05);
-}
-
-/* нижний заголовок */
-
-.bottom-title{
-text-align:center;
-margin-top:40px;
-color:#d8c8a8;
-font-size:32px;
-letter-spacing:2px;
-text-shadow:0 0 10px black;
-}
-
-.bottom-title:before,
-.bottom-title:after{
-content:"";
-display:block;
-width:260px;
-height:2px;
-background:#7a6a50;
-margin:10px auto;
-}
-
-/* увеличение фото */
-
-.lightbox{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.95);
-display:none;
-align-items:center;
-justify-content:center;
-}
-
-.lightbox img{
-max-width:90%;
-max-height:90%;
-}
-
-.footer{
-text-align:center;
-color:#b8a98c;
-margin-top:280px;
-font-size:18px;
-}
-
-</style>
-
+    footer {
+      margin-top: 40px;
+      padding: 30px 10px;
+      font-size: 14px;
+      color: #b59461;
+      border-top: 1px solid #3a2a14;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="container">
+  <header>
+    <h1>ORIGINAL3DART</h1>
+    <p class="subtitle">Украшения ручной работы | Бронза | Камни | Эмаль</p>
+  </header>
 
-<div class="section-title">
-Новые модели
-</div>
+  <section>
+    <h2 class="section-title">Новые модели</h2>
+    <div class="gallery">
+      <img src="[i.ibb.co](https://i.ibb.co/6njC1nY/model1.jpg)" alt="Модель 1">
+      <img src="[i.ibb.co](https://i.ibb.co/hDx2kSR/model2.jpg)" alt="Модель 2">
+      <img src="[i.ibb.co](https://i.ibb.co/vw7TtTX/model3.jpg)" alt="Модель 3">
+      <img src="[i.ibb.co](https://i.ibb.co/YPRk0HM/model4.jpg)" alt="Модель 4">
+    </div>
+  </section>
 
-<div class="gallery">
+  <section>
+    <h2 class="section-title">Все модели</h2>
+    <p>Скоро доступно...</p>
+  </section>
 
-<img src="work1.jpg" onclick="openImg(this.src)">
-<img src="work2.jpg" onclick="openImg(this.src)">
-<img src="work3.jpg" onclick="openImg(this.src)">
-<img src="work4.jpg" onclick="openImg(this.src)">
+  <footer>
+    <p>© 2025 Igor Handmade</p>
+  </footer>
 
-</div>
+  <!-- Модальное окно -->
+  <div id="modal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modal-img">
+  </div>
 
-<div class="bottom-title">
-Все модели
-</div>
+  <script>
+    const modal = document.getElementById("modal");
+    const modalImg = document.getElementById("modal-img");
+    const closeBtn = document.getElementsByClassName("close")[0];
+    const images = document.querySelectorAll(".gallery img");
 
-<div class="footer">
-© 2026 Igor Handmade
-</div>
+    images.forEach(img => {
+      img.addEventListener("click", () => {
+        modal.style.display = "flex";
+        modalImg.src = img.src;
+      });
+    });
 
-</div>
+    closeBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
 
-<div class="lightbox" id="lightbox" onclick="closeImg()">
-<img id="lightimg">
-</div>
-
-<script>
-
-function openImg(src){
-document.getElementById("lightbox").style.display="flex";
-document.getElementById("lightimg").src=src;
-}
-
-function closeImg(){
-document.getElementById("lightbox").style.display="none";
-}
-
-</script>
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) modal.style.display = "none";
+    });
+  </script>
 
 </body>
 </html>
