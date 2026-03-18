@@ -2,131 +2,95 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<title>Original3Dart</title>
+<title>Original3DArt</title>
 
 <style>
-body{
-margin:0;
-background:#111;
-font-family:serif;
-display:flex;
-justify-content:center;
+body {
+    margin: 0;
+    background: black;
+    display: flex;
+    justify-content: center;
 }
 
-.page{
-width:1200px;
-background:url("vikingsite.jpg") center top no-repeat;
-background-size:cover;
-padding-bottom:120px;
+.site {
+    position: relative;
+    width: 1024px;
+    height: 1536px;
+    background: url('vikingsite.jpg') no-repeat center/cover;
 }
 
-.header{
-text-align:center;
-padding-top:120px;
-padding-bottom:60px;
-color:#d6c3a1;
+/* зоны клика */
+.click {
+    position: absolute;
+    cursor: pointer;
 }
 
-.header h1{
-font-size:64px;
-margin:0;
-letter-spacing:3px;
+/* координаты 4 фото */
+.img1 { top: 600px; left: 140px; width: 180px; height: 180px; }
+.img2 { top: 600px; left: 340px; width: 180px; height: 180px; }
+.img3 { top: 600px; left: 540px; width: 180px; height: 180px; }
+.img4 { top: 600px; left: 740px; width: 180px; height: 180px; }
+
+/* кнопка GO */
+.go {
+    top: 860px;
+    left: 620px;
+    width: 200px;
+    height: 70px;
 }
 
-.subtitle{
-margin-top:10px;
-font-size:18px;
+/* увеличение */
+.popup {
+    display: none;
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
 }
 
-.section-title{
-text-align:center;
-color:#d6c3a1;
-font-size:38px;
-margin-top:60px;
-margin-bottom:30px;
+.popup img {
+    max-width: 90%;
+    max-height: 90%;
 }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(4,260px);
-gap:30px;
-justify-content:center;
-}
-
-.item img{
-width:260px;
-height:260px;
-object-fit:cover;
-border:4px solid #3b2e22;
-}
-
-.allmodels{
-text-align:center;
-margin-top:70px;
-color:#d6c3a1;
-font-size:38px;
-}
-
-.button{
-margin-top:10px;
-display:inline-block;
-padding:12px 30px;
-border:2px solid #c8a97e;
-color:#c8a97e;
-text-decoration:none;
-font-size:20px;
-transition:0.3s;
-}
-
-.button:hover{
-background:#c8a97e;
-color:black;
-}
-
-.footer{
-text-align:center;
-margin-top:120px;
-color:#c8a97e;
-font-size:16px;
-}
 </style>
 </head>
 
 <body>
 
 <div class="site">
-  <img src="vikingsite.jpg">
 
+    <div class="click img1" onclick="openImg('img1.jpg')"></div>
+    <div class="click img2" onclick="openImg('img2.jpg')"></div>
+    <div class="click img3" onclick="openImg('img3.jpg')"></div>
+    <div class="click img4" onclick="openImg('img4.jpg')"></div>
 
-<div class="header">
-<h1>ORIGINAL3DART</h1>
-<div class="subtitle">
-Украшения ручной работы | Бронза | Камни | Эмаль
-</div>
-</div>
-
-<div class="section-title">
-Новые модели
-</div>
-
-<div class="grid">
-<div class="item"><img src="img/1.jpg"></div>
-<div class="item"><img src="img/2.jpg"></div>
-<div class="item"><img src="img/3.jpg"></div>
-<div class="item"><img src="img/4.jpg"></div>
-</div>
-
-<div class="allmodels">
-Все модели
-<br>
-<a class="button" href="models.html">Здесь</a>
-</div>
-
-<div class="footer">
-© 2025 Igor Handmade
-</div>
+    <div class="click go" onclick="goPage()"></div>
 
 </div>
+
+<div class="popup" id="popup" onclick="closeImg()">
+    <img id="bigImg">
+</div>
+
+<script>
+function openImg(src){
+    document.getElementById('popup').style.display='flex';
+    document.getElementById('bigImg').src=src;
+}
+
+function closeImg(){
+    document.getElementById('popup').style.display='none';
+}
+
+function goPage(){
+    window.location.href = "models.html";
+}
+</script>
 
 </body>
 </html>
