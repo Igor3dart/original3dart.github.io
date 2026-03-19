@@ -2,95 +2,87 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Original3DArt</title>
+    <title>Главная - Original3DArt</title>
     <style>
-        body {
-            margin: 0;
-            background: black;
-            display: flex;
-            justify-content: center;
+        body { margin: 0; background: #000; display: flex; justify-content: center; }
+        
+        .site { 
+            position: relative; 
+            width: 1024px; 
+            height: 1536px; 
+            background: url('frame_bg.jpg') no-repeat center/contain; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            padding-top: 250px; 
+            box-sizing: border-box; 
         }
 
-        .site {
-            position: relative;
-            width: 1024px;
-            height: 1536px;
-            background: url('vikingsite.jpg') no-repeat center/cover;
+        .grid-container { display: flex; flex-wrap: wrap; width: 720px; gap: 40px; justify-content: center; }
+        
+        .item { 
+            width: 200px; height: 200px; border: 4px solid #b8860b; 
+            cursor: pointer; background-size: cover; background-position: center; 
         }
 
-        /* Общие настройки для всех кликабельных областей */
-        .click {
-            position: absolute;
-            cursor: pointer;
-            background-size: cover; /* чтобы картинка заполнила квадрат */
-            background-position: center;
-            border: none;
-        }
+        .nav-btns { margin-top: 50px; display: flex; gap: 20px; }
+        .btn { color: #b8860b; text-decoration: none; border: 2px solid #b8860b; padding: 10px 20px; font-size: 20px; font-family: sans-serif; }
 
-        /* Координаты и картинки для 4 фото */
-        .work1 { top: 638px; left: 153px; width: 160px; height: 192px; background-image: url('work1.jpg'); }
-        .work2 { top: 638px; left: 339px; width: 164px; height: 191px; background-image: url('work2.jpg'); }
-        .work3 { top: 635px; left: 524px; width: 165px; height: 194px; background-image: url('work3.jpg'); }
-        .work4 { top: 637px; left: 714px; width: 163px; height: 187px; background-image: url('work4.jpg'); }
-
-        /* Кнопка GO */
-        .go {
-            top: 941px;
-            left: 570px;
-            width: 163px;
-            height: 70px;
-        }
-
-        /* Окно предпросмотра (зум) */
-        .popup {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.9);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-
-        .popup img {
-            max-width: 90%;
-            max-height: 90%;
-            border: 2px solid #555;
-        }
+        /* Попап */
+        .popup { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); justify-content: center; align-items: center; z-index: 1000; }
+        .popup img { max-width: 85vw; max-height: 80vh; border: 5px solid #b8860b; }
+        .arrow { color: white; font-size: 50px; cursor: pointer; padding: 20px; user-select: none; }
     </style>
 </head>
 <body>
 
 <div class="site">
-    <!-- Добавлены классы для отображения картинок -->
-    <div class="click work1" onclick="openImg('work1.jpg')"></div>
-    <div class="click work2" onclick="openImg('work2.jpg')"></div>
-    <div class="click work3" onclick="openImg('work3.jpg')"></div>
-    <div class="click work4" onclick="openImg('work4.jpg')"></div>
+    <div class="grid-container">
+        <!-- ВСТАВЬ СЮДА СВОИ ФОТО -->
+        <!-- Пример 1: Если фото одно -->
+        <div class="item" onclick="openGallery(['img1.jpg'])" style="background-image: url('img1.jpg')"></div>
+        
+        <!-- Пример 2: Если фото несколько (для листания) -->
+        <div class="item" onclick="openGallery(['work1.jpg', 'work1_b.jpg'])" style="background-image: url('work1.jpg')"></div>
+        
+        <!-- Скопируй строчку ниже столько раз, сколько нужно (всего 12) -->
+        <div class="item" onclick="openGallery(['work2.jpg'])" style="background-image: url('work2.jpg')"></div>
+    </div>
 
-    <div class="click go" onclick="goPage()"></div>
+    <!-- Кнопки страниц -->
+    <div class="nav-btns">
+        <a href="index.html" class="btn">1</a>
+        <a href="models.html" class="btn">2</a>
+        <a href="page3.html" class="btn">3</a>
+        <a href="page4.html" class="btn">4</a>
+    </div>
 </div>
 
-<!-- Окно для увеличения -->
-<div class="popup" id="popup" onclick="closeImg()">
-    <img id="bigImg" src="" alt="Увеличенное фото">
+<!-- Попап -->
+<div class="popup" id="popup" onclick="closePopup(event)">
+    <div class="arrow" onclick="event.stopPropagation(); navigate(-1)">&#10094;</div>
+    <img id="bigImg" src="" alt="Photo">
+    <div class="arrow" onclick="event.stopPropagation(); navigate(1)">&#10095;</div>
 </div>
 
 <script>
-    function openImg(src){
-        document.getElementById('popup').style.display='flex';
-        document.getElementById('bigImg').src=src;
+    let gallery = [];
+    let index = 0;
+    
+    function openGallery(images) {
+        gallery = images;
+        index = 0;
+        document.getElementById('bigImg').src = gallery[index];
+        document.getElementById('popup').style.display = 'flex';
     }
-
-    function closeImg(){
-        document.getElementById('popup').style.display='none';
+    
+    function navigate(dir) {
+        index = (index + dir + gallery.length) % gallery.length;
+        document.getElementById('bigImg').src = gallery[index];
     }
-
-    function goPage(){
-        window.location.href = "models.html";
+    
+    function closePopup(e) {
+        if (e.target.id === 'popup') document.getElementById('popup').style.display = 'none';
     }
 </script>
 
